@@ -23,7 +23,7 @@ pipeline {
 					}
 					steps{
 						script {
-						echo "${.envResult}"
+						echo "${env.Result}"
 						echo "Updating Second Stage"
 					}
 					}

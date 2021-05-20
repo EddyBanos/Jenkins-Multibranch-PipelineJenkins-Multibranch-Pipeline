@@ -14,10 +14,6 @@ pipeline {
 					sh '''
 						echo "Updating Stage"
 					'''
-					when {
-                				branch 'master'
-						EXECUTION: "true"
-            				}
 				}
 			} 
 			stage('Third') {

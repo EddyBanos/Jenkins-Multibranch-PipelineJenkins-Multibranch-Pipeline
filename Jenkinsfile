@@ -6,6 +6,9 @@ pipeline {
 					script {
 						env.EXECUTE="true"
 					}
+					agent {
+						EXECUTE
+					    }
 				}
 			}
 			stage('Second') {
@@ -13,6 +16,15 @@ pipeline {
 					script {
 						echo "${EXECUTE}"
 						echo "Updating Second Stage"
+					}
+					when{
+						beforeAgent true
+					}
+					steps{
+						script {
+						echo "${EXECUTE}"
+						echo "Updating Second Stage"
+					}
 					}
 				}
 

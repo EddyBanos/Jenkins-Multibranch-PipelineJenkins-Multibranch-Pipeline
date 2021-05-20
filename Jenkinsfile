@@ -5,6 +5,7 @@ pipeline {
 				steps {
 					sh '''
 						env.EXECUTE='true'
+						echo ${EXECUTE}
 					'''
 				}
 			}

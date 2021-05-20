@@ -1,20 +1,23 @@
 pipeline {
 	agent any
 	environment {
-        	VARIABLE = 'Test'
+        	Result = 'null'
     	}
 		stages {
 			stage('First') {
 				steps {
-					agent {
-						Test="true"
+					script {
+						env.Result="true"
+					}
+					agent{
+						label "Flag"
 					}
 				}
 			}
 			stage('Second') {
 				steps {
 					script {
-						echo "${EXECUTE}"
+						echo "${Result}"
 						echo "Updating Second Stage"
 					}
 					when{

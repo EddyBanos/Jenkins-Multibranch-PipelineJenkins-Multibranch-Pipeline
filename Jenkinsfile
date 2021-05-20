@@ -1,7 +1,7 @@
 pipeline {
 	agent any
 	environment {
-        	Result = 'null'
+        	Result = "null"
     	}
 		stages {
 			stage('First') {

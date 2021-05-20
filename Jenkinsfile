@@ -11,7 +11,7 @@ pipeline {
 			stage('Second') {
 				steps {
 					script {
-						echo ${VARIABLE}
+						echo "${VARIABLE}"
 						echo "Updating Second Stage"
 					}
 				}

@@ -1,15 +1,13 @@
 pipeline {
 	agent any
 	environment {
-        	Result = "null"
+        	Result = "True"
     	}
 		stages {
 			stage('First') {
 				steps {
 					echo "Result = ${env.Result}"
-					agent{
-						label "Flag"
-					}
+					
 				}
 			}
 			stage('Second') {

@@ -1,19 +1,19 @@
 pipeline {
 	agent any
 	environment {
-        	Result = "True"
+        	RESULTADO = "True"
     	}
 		stages {
 			stage('First') {
 				steps {
-					echo "Result = ${env.Result}"
+					echo "Result = ${env.RESULTADO}"
 					
 				}
 			}
 			stage('Second') {
 				steps {
 					script {
-						echo "${env.Result}"
+						echo "${env.RESULTADO}"
 						echo "Updating Second Stage"
 					}
 					when{
@@ -21,7 +21,7 @@ pipeline {
 					}
 					steps{
 						script {
-						echo "${env.Result}"
+						echo "${env.RESULTADO}"
 						echo "Updating Second Stage"
 					}
 					}

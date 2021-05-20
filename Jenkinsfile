@@ -2,9 +2,11 @@ pipeline {
 	agent any
 		stages {
 			stage('First') {
+				script {
+					env.VARIABLE="value"
+					}
 				steps {
 					sh '''
-						env.EXECUTE='true'
 						echo ${EXECUTE}
 					'''
 				}

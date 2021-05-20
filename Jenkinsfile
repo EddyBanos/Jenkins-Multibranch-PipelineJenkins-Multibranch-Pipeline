@@ -1,14 +1,14 @@
 pipeline {
 	agent any
+	environment {
+        	VARIABLE = 'Test'
+    	}
 		stages {
 			stage('First') {
 				steps {
-					script {
-						env.EXECUTE="true"
-					}
 					agent {
-						EXECUTE
-					    }
+						Test="true"
+					}
 				}
 			}
 			stage('Second') {

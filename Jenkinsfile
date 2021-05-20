@@ -6,9 +6,7 @@ pipeline {
 		stages {
 			stage('First') {
 				steps {
-					script {
-						env.Result="true"
-					}
+					echo "Result = ${env.Result}"
 					agent{
 						label "Flag"
 					}
@@ -17,7 +15,7 @@ pipeline {
 			stage('Second') {
 				steps {
 					script {
-						echo "${Result}"
+						echo "${env.Result}"
 						echo "Updating Second Stage"
 					}
 					when{
@@ -25,7 +23,7 @@ pipeline {
 					}
 					steps{
 						script {
-						echo "${EXECUTE}"
+						echo "${.envResult}"
 						echo "Updating Second Stage"
 					}
 					}

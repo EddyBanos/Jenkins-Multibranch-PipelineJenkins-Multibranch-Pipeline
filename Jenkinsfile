@@ -7,29 +7,32 @@ pipeline {
 			stage('First') {
 				steps {
 					echo "Result = ${env.RESULTADO}"
-					
+					script {
+						env.RESULTADO = "True"
+					}
 				}
 			}
+			
 			stage('Second') {
+				when {
+					expression { RESULTADO == "True"}
+				}
 				steps {
+					sh '''
+						echo "Step -Two"
+						echo "Updating Second Stage"
+					'''
 					script {
-						echo "${env.RESULTADO}"
-						echo "Updating Second Stage"
-					}
-					when{
-						beforeAgent true
-					}
-					steps{
-						script {
-						echo "${env.RESULTADO}"
-						echo "Updating Second Stage"
-					}
+						echo "${RESULTADO}"
 					}
 				}
 
 			} 
 			stage('Third') {
 				steps {
+					when {
+					expression { EXECUTE == "False"}
+				}
 					sh '''
 						echo "Third Step"
 					'''

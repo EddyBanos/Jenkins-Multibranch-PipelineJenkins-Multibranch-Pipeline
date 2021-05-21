@@ -30,7 +30,7 @@ pipeline {
 			} 
 			stage('Third') {
 				when {
-					expression { EXECUTE == "False"}
+					expression { RESULTADO == "False"}
 				}
 				steps {
 					sh '''
